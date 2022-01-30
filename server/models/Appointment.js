@@ -13,7 +13,7 @@ const appointmentSchema = new Schema({
         type : String
     },
     date : {
-        type: Date
+        type: String
     },
     slotTime : {
         type: String
@@ -23,8 +23,8 @@ const appointmentSchema = new Schema({
 }
   );
 
-const Appointment = model('Appointment', appointmentSchema);
 
 
-module.exports = { Appointment};
+const Appointment = model("Appointment",appointmentSchema)
+module.exports = Appointment;
 
