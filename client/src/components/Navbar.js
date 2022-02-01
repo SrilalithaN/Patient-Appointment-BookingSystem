@@ -1,39 +1,32 @@
-import React, { useState } from "react";
-import { Menu } from "semantic-ui-react";
+import React from "react";
+import "../App.css";
+import { Link } from "react-router-dom";
 
-export function Navbar() {
-  const [state, setState] = useState({ activeItem: "Home" });
-
-  const handleItemClick = (e, { name }) => setState({ activeItem: name });
-
-  const { activeItem } = state;
-
+function Navbar() {
   return (
-    <Menu secondary className="navbar">
-      <Menu.Menu position = "left">
-        <Menu.Item className="navitem"
-          name="Srinivasa Hopsital">
-          </Menu.Item>
-      </Menu.Menu>
-      <Menu.Menu position="right">
-        <Menu.Item className="navitem"
-          name="Home"
-          active={activeItem === "Home"}
-          onClick={handleItemClick}
-        />
-        <Menu.Item
-          name="Bookings" className="navitem"
-          active={activeItem === "Bookings"}
-          onClick={handleItemClick}
-        />
-        <Menu.Item
-          name="Contact" className="navitem"
-          active={activeItem === "Contact"}
-          onClick={handleItemClick}
-        />
-      </Menu.Menu>
-    </Menu>
+    <div>
+      <nav className="topnav" id="myTopnav">
+      <h4 className=" title">Srinivasa Hospital</h4>
+        <ul>
+          <li>
+            <Link to={"/"} className="link">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to={"/bookings/"} className="link">Bookings</Link>
+          </li>
+          <li>
+            <Link to={"/contact"} className="link">
+             Contact
+            </Link>
+          </li>
+        
+        </ul>
+      </nav>
+    </div>
   );
-}
 
+}
 export default Navbar;
+

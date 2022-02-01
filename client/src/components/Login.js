@@ -3,6 +3,8 @@ import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { LOGIN_USER } from "../utils/mutations";
 import { Button, Form } from "semantic-ui-react";
+import SignUp from "./SignUp";
+import Appointments from "./Appointments";
 
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
@@ -29,32 +31,37 @@ const LoginForm = () => {
     });
   };
   return (
-    <Form size="small" onSubmit={handleFormSubmit}>
-      <h2>Log In</h2>
-      <Form.Input
-        label="Email"
-        type="text"
-        placeholder="patient.name@test.com"
-        name="email"
-        onChange={handleInputChange}
-        value={userFormData.email}
-      />
-      <Form.Input
-        label="Password"
-        type="password"
-        placeholder="*******"
-        name="password"
-        onChange={handleInputChange}
-        value={userFormData.password}
-      />
+    <div>
+      <Form size="small" onSubmit={handleFormSubmit}>
+        <h2>Log In to make a booking</h2>
+        <Form.Input
+          label="Email"
+          type="text"
+          placeholder="patient.name@test.com"
+          name="email"
+          onChange={handleInputChange}
+          value={userFormData.email}
+          className="form-input"
+        />
+        <Form.Input
+          label="Password"
+          type="password"
+          placeholder="*******"
+          name="password"
+          onChange={handleInputChange}
+          value={userFormData.password}
+          className="form-input"
+        />
 
-      <Button
-        disabled={!(userFormData.email && userFormData.password)}
-        type="submit"
-      >
-        Log In
-      </Button>
-    </Form>
+        <Button
+          disabled={!(userFormData.email && userFormData.password)}
+          type="submit"
+        >
+          Log In
+        </Button>
+      </Form>
+      {Auth.loggedIn() ? <Appointments /> : <SignUp />}
+    </div>
   );
 };
 
