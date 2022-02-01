@@ -12,6 +12,7 @@ import Navbar from './components/Navbar';
 // import Home from ' ./pages/Home';
 // import Bookings from ' ./pages/Bookings';
 // import Contact from ' ./pages/Contact';
+import "./App.css";
 
 const httpLink = createHttpLink({
   uri: "/graphql",

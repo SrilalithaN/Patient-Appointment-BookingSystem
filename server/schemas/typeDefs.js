@@ -10,7 +10,7 @@ const typeDefs = gql`
   }
 
   type Appointment {
-   _id:ID
+    _id: ID
     patientName: String!
     doctorName: String!
     date: String!
@@ -21,21 +21,21 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
- 
+
   input AppointmentInput {
     patientName: String!
     doctorName: String!
     date: String!
     slotTime: String!
   }
-  
+
   type Query {
-    me: User
+    patient: User
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(
+    signup(
       userName: String!
       email: String!
       password: String!
