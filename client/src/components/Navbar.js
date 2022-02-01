@@ -9,20 +9,25 @@ export function Navbar() {
   const { activeItem } = state;
 
   return (
-    <Menu secondary>
+    <Menu secondary className="navbar">
+      <Menu.Menu position = "left">
+        <Menu.Item className="navitem"
+          name="Srinivasa Hopsital">
+          </Menu.Item>
+      </Menu.Menu>
       <Menu.Menu position="right">
-        <Menu.Item
+        <Menu.Item className="navitem"
           name="Home"
           active={activeItem === "Home"}
           onClick={handleItemClick}
         />
         <Menu.Item
-          name="Bookings"
+          name="Bookings" className="navitem"
           active={activeItem === "Bookings"}
           onClick={handleItemClick}
         />
         <Menu.Item
-          name="Contact"
+          name="Contact" className="navitem"
           active={activeItem === "Contact"}
           onClick={handleItemClick}
         />

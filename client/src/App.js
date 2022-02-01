@@ -1,55 +1,63 @@
-import React from 'react';
-import { BrowserRouter as Router,  } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
-  createHttpLink,
+  //   createHttpLink,
 } from "@apollo/client";
-import { setContext } from "@apollo/client/link/context";
-import Navbar from './components/Navbar';
-// import Footer from ' ./components/Footer';
-// import Home from ' ./pages/Home';
-// import Bookings from ' ./pages/Bookings';
-// import Contact from ' ./pages/Contact';
-import "./App.css";
+// import { setContext } from "@apollo/client/link/context";
+// import Navbar from "./components/Navbar";
+// // import Footer from ' ./components/Footer';
+// // import Home from ' ./pages/Home';
+// import Bookings from "./pages/Booking";
+// // import Contact from ' ./pages/Contact';
 
-const httpLink = createHttpLink({
+// const httpLink = createHttpLink({
+//   uri: "/graphql",
+// });
+
+// const authLink = setContext((_, { headers }) => {
+//   const token = localStorage.getItem("id_token");
+//   return {
+//     headers: {
+//       ...headers,
+//       authorization: token ? `Bearer ${token}` : "",
+//     },
+//   };
+// });
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
   uri: "/graphql",
 });
 
-const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem("id_token");
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : "",
-    },
-  };
-});
+// function App() {
+//   return (
+//     <ApolloProvider client={client}>
+//       {/*<Navbar />*/}
+//       <Router>
+//         <Switch>
+//           {/* <Route exact path='/' component={Home}/> */}
+//           {/*<Route exact path='/bookings' component={Bookings} />*/}
+//           {/* <Route exact path='/contact' component={Contact} />
+//           <Route render={() => <h1 className='display-2'>Wrong page!</h1>} /> */}
+//         </Switch>
+//       </Router>
+//     </ApolloProvider>
+//   );
+// }
 
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
-});
-
-function App() {
-  return (
-    <ApolloProvider client={client}>
+export default () => (
+  <ApolloProvider client={client}>
     <Router>
-      
-        <Navbar />
-        {/* <Switch>
-          <Route exact path='/' component={Home}/>
-          <Route exact path='/bookings' component={Bookings} />
-          <Route exact path='/contact' component={Contact} />
-          <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
-        </Switch>
-      </>
-      <Footer/> */}
+      <Switch>
+        <p>Hereerererere</p>
+        {/* <Route exact path='/' component={Home}/> */}
+        {/*<Route exact path='/bookings' component={Bookings} />*/}
+        {/* <Route exact path='/contact' component={Contact} />
+           <Route render={() => <h1 className='display-2'>Wrong page!</h1>} /> */}
+      </Switch>
     </Router>
-    </ApolloProvider>
-  );
-}
-
-export default App;
+  </ApolloProvider>
+);
