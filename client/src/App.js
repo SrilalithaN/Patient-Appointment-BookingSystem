@@ -1,18 +1,18 @@
 import React from "react";
-import { BrowserRouter as Router, Switch ,Route} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { InMemoryCache, ApolloProvider,createHttpLink, } from "@apollo/client";
 import {
   ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from "@apollo/client";
+ 
+  
+} from "apollo-client";
 import { setContext } from "@apollo/client/link/context";
 import Navbar from "./components/Navbar";
 //import Footer from ' ./components/Footer';
 import Home from "./pages/Home";
 import Bookings from "./pages/Booking";
 import Contact from "./pages/Contact";
-import Signup from "./components/SignUp";
+import Login from "./components/Login";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -37,14 +37,13 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-   
       <Router>
-      <Navbar />
+        <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/bookings" component={Bookings} />
           <Route exact path="/contact" component={Contact} />
-          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/login" component={Login} />
           <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
         </Switch>
       </Router>

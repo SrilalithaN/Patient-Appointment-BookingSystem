@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import {Link} from "react-router-dom";
 import { Button, Form, Icon, Message } from "semantic-ui-react";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { SIGNUP } from "../utils/mutations";
-// import Appointments from "../components/Appointments";
+//  import Appointments from "../components/Appointments";
 
 const SignupForm = () => {
   const [userFormData, setUserFormData] = useState({
@@ -46,10 +47,11 @@ const SignupForm = () => {
         header="Welcome to our booking system!"
         content="Fill out the form below to sign-up for a new account"
       />
-      <Form className="attached fluid segment" onSubmit={handleFormSubmit}>
-        <Form.Group widths="equal">
+      <Form className="attached fluid segment" onSubmit={handleFormSubmit} size="large">
+      
           <Form.Input
             fluid
+            width={6}
             label="Full Name"
             placeholder="Full Name"
             name="fullName"
@@ -59,6 +61,7 @@ const SignupForm = () => {
           />
           <Form.Input
             fluid
+            width={6}
             label="Username"
             placeholder="Username"
             name="userName"
@@ -66,8 +69,9 @@ const SignupForm = () => {
             onChange={handleInputChange}
             value={userFormData.userName}
           />
-        </Form.Group>
+     
         <Form.Input
+         width={6}
           label="Email"
           placeholder="patient.name@test.com"
           name="email"
@@ -76,6 +80,7 @@ const SignupForm = () => {
           value={userFormData.email}
         />
         <Form.Input
+         width={6}
           label="Password"
           type="password"
           name="password"
@@ -89,7 +94,7 @@ const SignupForm = () => {
       </Form>
       <Message attached="bottom" warning>
         <Icon name="help" />
-        Already signed up?&nbsp;<a href="./Login">Login here</a>&nbsp;instead.
+        Already signed up?&nbsp;<Link to = "/login/">Login here </Link> &nbsp;instead.
       </Message>
     </div>
   );

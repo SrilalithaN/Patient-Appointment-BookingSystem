@@ -17,6 +17,7 @@ const AppointmentForm = () => {
     dateTime: "",
   });
   const handleInputChange = (event) => {
+  
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
   };
@@ -41,9 +42,10 @@ const AppointmentForm = () => {
   };
 
   return (
-    <Form size="small" onSubmit={handleFormSubmit}>
+    <Form onSubmit={handleFormSubmit} size="large">
       <h2>Book an Appointment</h2>
       <Form.Input
+       width={6}
         label="Patient Name"
         type="text"
         placeholder="Harry"
@@ -53,6 +55,7 @@ const AppointmentForm = () => {
       />
 
       <Form.Field
+       width={6}
         control={Dropdown}
         label="Doctor Name"
         name="doctorName"
@@ -62,6 +65,7 @@ const AppointmentForm = () => {
       />
 
       <Form.Field
+       width={6}
         label="Date-Time"
         control={DatePicker}
         value={userFormData.dateTime}

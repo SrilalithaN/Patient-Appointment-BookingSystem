@@ -4,7 +4,7 @@ import Auth from "../utils/auth";
 import { LOGIN_USER } from "../utils/mutations";
 import { Button, Form } from "semantic-ui-react";
 // import SignUp from "./SignUp";
-// import Appointments from "./Appointments";
+ import Appointments from "./Appointments";
 // import { Link } from "react-router-dom";
 
 const LoginForm = () => {
@@ -30,12 +30,14 @@ const LoginForm = () => {
       email: "",
       password: "",
     });
+    return <Appointments/>
   };
   return (
     <div>
-      <Form size="small" onSubmit={handleFormSubmit}>
+      <Form size="large" onSubmit={handleFormSubmit}>
         <h2>Log In to make a booking</h2>
         <Form.Input
+         width={6}
           label="Email"
           type="text"
           placeholder="patient.name@test.com"
@@ -45,6 +47,7 @@ const LoginForm = () => {
           className="form-input"
         />
         <Form.Input
+         width={6}
           label="Password"
           type="password"
           placeholder="*******"
