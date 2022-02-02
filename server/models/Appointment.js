@@ -7,21 +7,15 @@ const appointmentSchema = new Schema({
   doctorName: {
     type: String,
   },
-  date: {
+  dateTime: {
     type: Date,
     get: (timestamp) => dateFormat(timestamp),
  
-  },
-  slotTime: {
-    type: String,
   },
   doctorId: {
     type: String,
   },
   dateId: {
-    type: String,
-  },
-  slotId: {
     type: String,
   },
   patientId: {

@@ -25,8 +25,7 @@ const typeDefs = gql`
   input AppointmentInput {
     patientName: String!
     doctorName: String!
-    date: String!
-    slotTime: String!
+    dateTime: String!
   }
 
   type Query {
@@ -44,8 +43,7 @@ const typeDefs = gql`
     addAppointment(
       patientName: String!
       doctorName: String!
-      date: String!
-      slotTime: String!
+      dateTime: String!
     ): Appointment
     cancelAppointment(bookingId: ID!): Appointment
   }

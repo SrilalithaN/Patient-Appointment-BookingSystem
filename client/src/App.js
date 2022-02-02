@@ -12,6 +12,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Bookings from "./pages/Booking";
 import Contact from "./pages/Contact";
+import Signup from "./components/SignUp";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -43,6 +44,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/bookings" component={Bookings} />
           <Route exact path="/contact" component={Contact} />
+          <Route exact path="/signup" component={Signup} />
           <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
         </Switch>
       </Router>

@@ -39,20 +39,19 @@ export const ADD_APPOINTMENT = gql`
   mutation addAppointment(
     $patientName: String!
     $doctorName: String!
-    $date: String!
-    $slotTime: String!
+    $dateTime: String!
   ) {
     addAppointment(
       patientName: patientName
       doctorName: $doctorName
-      date: $date
-      slotTime: $slotTime
+      dateTime: $dateTime
+  
     ) {
       appointments {
         patientName
         doctorName
-        date
-        slotTime
+        dateTime
+       
       }
     }
   }
@@ -66,8 +65,8 @@ export const CANCEL_APPOINTMENT = gql`
         appointments {
           patientName
           doctorName
-          date
-          slotTime
+          dateTime
+       
         }
       }
     }

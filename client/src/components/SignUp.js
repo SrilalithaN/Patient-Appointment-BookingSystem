@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Button, Form } from "semantic-ui-react";
+import { Button, Form, Icon, Message } from "semantic-ui-react";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { SIGNUP } from "../utils/mutations";
+// import Appointments from "../components/Appointments";
 
 const SignupForm = () => {
   const [userFormData, setUserFormData] = useState({
@@ -35,60 +36,62 @@ const SignupForm = () => {
       email: "",
       password: "",
     });
+    // return <Appointments />;
   };
 
   return (
-    <Form size="small" onSubmit={handleFormSubmit}>
-      <h2>Sign Up</h2>
-      <Form.Input
-        label="User Name"
-        type="text"
-        placeholder="Harry"
-        name="userName"
-        onChange={handleInputChange}
-        value={userFormData.userName}
+    <div>
+      <Message
+        attached
+        header="Welcome to our booking system!"
+        content="Fill out the form below to sign-up for a new account"
       />
+      <Form className="attached fluid segment" onSubmit={handleFormSubmit}>
+        <Form.Group widths="equal">
+          <Form.Input
+            fluid
+            label="Full Name"
+            placeholder="Full Name"
+            name="fullName"
+            type="text"
+            onChange={handleInputChange}
+            value={userFormData.fullName}
+          />
+          <Form.Input
+            fluid
+            label="Username"
+            placeholder="Username"
+            name="userName"
+            type="text"
+            onChange={handleInputChange}
+            value={userFormData.userName}
+          />
+        </Form.Group>
+        <Form.Input
+          label="Email"
+          placeholder="patient.name@test.com"
+          name="email"
+          type="text"
+          onChange={handleInputChange}
+          value={userFormData.email}
+        />
+        <Form.Input
+          label="Password"
+          type="password"
+          name="password"
+          onChange={handleInputChange}
+          value={userFormData.password}
+        />
 
-      <Form.Input
-        label="Full Name"
-        type="text"
-        placeholder="Jack Potter"
-        name="fullName"
-        onChange={handleInputChange}
-        value={userFormData.fullName}
-      />
-
-      <Form.Input
-        label="Email"
-        type="text"
-        placeholder="harry@potter@test.com"
-        name="email"
-        onChange={handleInputChange}
-        value={userFormData.email}
-      />
-      <Form.Input
-        label="Password"
-        type="password"
-        placeholder="*******"
-        name="password"
-        onChange={handleInputChange}
-        value={userFormData.password}
-      />
-
-      <Button
-        disabled={
-          !(
-            userFormData.firstName &&
-            userFormData.lastName &&
-            userFormData.email &&
-            userFormData.password
-          )
-        }
-        type="submit"
-      >
-        Submit
-      </Button>
-    </Form>
+        <Button color="blue" type="submit">
+          Submit
+        </Button>
+      </Form>
+      <Message attached="bottom" warning>
+        <Icon name="help" />
+        Already signed up?&nbsp;<a href="./Login">Login here</a>&nbsp;instead.
+      </Message>
+    </div>
   );
 };
 

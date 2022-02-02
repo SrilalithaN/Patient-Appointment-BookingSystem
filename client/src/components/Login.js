@@ -3,8 +3,9 @@ import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { LOGIN_USER } from "../utils/mutations";
 import { Button, Form } from "semantic-ui-react";
-import SignUp from "./SignUp";
-import Appointments from "./Appointments";
+// import SignUp from "./SignUp";
+// import Appointments from "./Appointments";
+// import { Link } from "react-router-dom";
 
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
@@ -60,7 +61,6 @@ const LoginForm = () => {
           Log In
         </Button>
       </Form>
-      {Auth.loggedIn() ? <Appointments /> : <SignUp />}
     </div>
   );
 };

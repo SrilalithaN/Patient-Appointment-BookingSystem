@@ -10,8 +10,8 @@ export const GET_ME = gql`
       appointments {
         patientName
         doctorName
-        date
-        slotTime
+        dateTime
+    
       }
     }
   }
