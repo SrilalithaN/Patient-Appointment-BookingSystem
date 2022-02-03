@@ -8,7 +8,8 @@
   --poppins: "Poppins", sans-serif;
   --zilla: "Zilla Slab", serif;
 }
-nav ,.footer{
+nav,
+.footer {
   background-image: url("./images/mochaGrunge.png");
 }
 nav ul {
@@ -57,14 +58,21 @@ nav a:hover {
   background-image: url("./images/dust_scratches.png");
 }
 
-.contactinfo , .hours{
- color:white;
- font-size: 1.5rem;
-  margin-top:2.5rem;
+.contactinfo,
+.hours {
+  color: white;
+  font-size: 1.5rem;
+  margin-top: 2.5rem;
 }
-.hours{
+.hours {
   margin-left: 2rem;
 }
-.contactinfo{
+.contactinfo {
   margin-right: 2rem;
+}
+.login {
+  margin-bottom: 6rem;
+}
+.imgclinic{
+  margin-bottom: 3rem;
 }

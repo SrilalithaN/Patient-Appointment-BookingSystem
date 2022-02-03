@@ -34,7 +34,7 @@ const LoginForm = () => {
   };
   return (
     <div>
-      <Form size="large" onSubmit={handleFormSubmit}>
+      <Form size="large" className="login" onSubmit={handleFormSubmit}>
         <h2>Log In to make a booking</h2>
         <Form.Input
          width={6}
