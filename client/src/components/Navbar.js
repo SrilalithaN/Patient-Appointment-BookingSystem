@@ -6,7 +6,7 @@ function Navbar() {
   return (
     <div>
       <nav className="topnav" id="myTopnav">
-      <h4 className=" title">Srinivasa Hospital</h4>
+        <h4 className=" title">Srinivasa Skin and General Hospital</h4>
         <ul>
           <li>
             <Link to={"/"} className="link">
@@ -14,19 +14,18 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <Link to={"/bookings/"} className="link">Bookings</Link>
+            <Link to={"/bookings/"} className="link">
+              Bookings
+            </Link>
           </li>
           <li>
             <Link to={"/contact"} className="link">
-             Contact
+              Contact
             </Link>
           </li>
-        
         </ul>
       </nav>
     </div>
   );
-
 }
 export default Navbar;
-
