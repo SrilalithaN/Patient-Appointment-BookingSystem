@@ -13,8 +13,7 @@ const typeDefs = gql`
     _id: ID
     patientName: String!
     doctorName: String!
-    date: String!
-    slotTime: String!
+    dateTime: String!
   }
 
   type Auth {

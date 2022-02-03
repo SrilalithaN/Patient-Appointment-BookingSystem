@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Link} from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import { Button, Form, Icon, Message } from "semantic-ui-react";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
@@ -14,6 +14,8 @@ const SignupForm = () => {
     password: "",
   });
 
+  const history = useHistory();
+
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
@@ -27,17 +29,17 @@ const SignupForm = () => {
     try {
       const { data } = await signup({ variables: { ...userFormData } });
       Auth.login(data.signup.token);
+      history.push("/appointments");
     } catch (err) {
       console.error(err);
     }
 
-    setUserFormData({
-      userName: "",
-      fullName: "",
-      email: "",
-      password: "",
-    });
-    // return <Appointments />;
+    // setUserFormData({
+    //   userName: "",
+    //   fullName: "",
+    //   email: "",
+    //   password: "",
+    // });
   };
 
   return (
@@ -47,31 +49,34 @@ const SignupForm = () => {
         header="Welcome to our booking system!"
         content="Fill out the form below to sign-up for a new account"
       />
-      <Form className="attached fluid segment" onSubmit={handleFormSubmit} size="large">
-      
-          <Form.Input
-            fluid
-            width={6}
-            label="Full Name"
-            placeholder="Full Name"
-            name="fullName"
-            type="text"
-            onChange={handleInputChange}
-            value={userFormData.fullName}
-          />
-          <Form.Input
-            fluid
-            width={6}
-            label="Username"
-            placeholder="Username"
-            name="userName"
-            type="text"
-            onChange={handleInputChange}
-            value={userFormData.userName}
-          />
-     
+      <Form
+        className="attached fluid segment"
+        onSubmit={handleFormSubmit}
+        size="large"
+      >
         <Form.Input
-         width={6}
+          fluid
+          width={6}
+          label="Full Name"
+          placeholder="Full Name"
+          name="fullName"
+          type="text"
+          onChange={handleInputChange}
+          value={userFormData.fullName}
+        />
+        <Form.Input
+          fluid
+          width={6}
+          label="Username"
+          placeholder="Username"
+          name="userName"
+          type="text"
+          onChange={handleInputChange}
+          value={userFormData.userName}
+        />
+
+        <Form.Input
+          width={6}
           label="Email"
           placeholder="patient.name@test.com"
           name="email"
@@ -80,7 +85,7 @@ const SignupForm = () => {
           value={userFormData.email}
         />
         <Form.Input
-         width={6}
+          width={6}
           label="Password"
           type="password"
           name="password"
@@ -94,7 +99,8 @@ const SignupForm = () => {
       </Form>
       <Message attached="bottom" warning>
         <Icon name="help" />
-        Already signed up?&nbsp;<Link to = "/login/">Login here </Link> &nbsp;instead.
+        Already signed up?&nbsp;<Link to="/login/">Login here </Link>{" "}
+        &nbsp;instead.
       </Message>
     </div>
   );

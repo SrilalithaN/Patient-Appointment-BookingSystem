@@ -16,9 +16,7 @@ const AppointmentForm = () => {
     doctorName: "",
     dateTime: "",
   });
-  const handleInputChange = (event) => {
-  
-    const { name, value } = event.target;
+  const handleInputChange = (event, { value, name }) => {
     setUserFormData({ ...userFormData, [name]: value });
   };
 
@@ -28,8 +26,7 @@ const AppointmentForm = () => {
     event.preventDefault();
 
     try {
-      const { data } = await addAppointment({ variables: { ...userFormData } });
-      Auth.login(data.addAppointment.token);
+      await addAppointment({ variables: { ...userFormData } });
     } catch (err) {
       console.error(err);
     }
@@ -42,10 +39,10 @@ const AppointmentForm = () => {
   };
 
   return (
-    <Form onSubmit={handleFormSubmit} size="large">
+    <Form className="appointment" onSubmit={handleFormSubmit} size="large">
       <h2>Book an Appointment</h2>
       <Form.Input
-       width={6}
+        width={6}
         label="Patient Name"
         type="text"
         placeholder="Harry"
@@ -55,29 +52,29 @@ const AppointmentForm = () => {
       />
 
       <Form.Field
-       width={6}
+        width={6}
         control={Dropdown}
         label="Doctor Name"
         name="doctorName"
         options={options}
         placeholder="Doctor"
+        onChange={handleInputChange}
         value={userFormData.doctorName}
       />
 
       <Form.Field
-       width={6}
+        width={6}
         label="Date-Time"
         control={DatePicker}
         value={userFormData.dateTime}
       />
       <Button
-        
-          // (
-          //   userFormData.patientName &&
-          //   userFormData.doctorName &&
-          //   userFormData.dateTime
-          // )
-        
+        // (
+        //   userFormData.patientName &&
+        //   userFormData.doctorName &&
+        //   userFormData.dateTime
+        // )
+
         type="submit"
       >
         Submit

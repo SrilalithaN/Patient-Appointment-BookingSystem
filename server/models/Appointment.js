@@ -8,8 +8,8 @@ const appointmentSchema = new Schema({
     type: String,
   },
   dateTime: {
-    type: Date,
-    get: (timestamp) => dateFormat(timestamp),
+    type: String,
+    
  
   },
   doctorId: {
