@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Button, Form, Dropdown } from "semantic-ui-react";
 import DatePicker from "./datePicker";
 import { useMutation } from "@apollo/client";
-import Auth from "../utils/auth";
 import { ADD_APPOINTMENT } from "../utils/mutations";
 
 const options = [
@@ -21,12 +20,14 @@ const AppointmentForm = () => {
   };
 
   const [addAppointment] = useMutation(ADD_APPOINTMENT);
-
+  console.log(userFormData);
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
+     
       await addAppointment({ variables: { ...userFormData } });
+      console.log(userFormData);
     } catch (err) {
       console.error(err);
     }
@@ -39,6 +40,7 @@ const AppointmentForm = () => {
   };
 
   return (
+    <>
     <Form className="appointment" onSubmit={handleFormSubmit} size="large">
       <h2>Book an Appointment</h2>
       <Form.Input
@@ -66,20 +68,35 @@ const AppointmentForm = () => {
         width={6}
         label="Date-Time"
         control={DatePicker}
+        onChange={(value) =>
+          handleInputChange(
+            {},
+            { name: "dateTime", value: value.toISOString() }
+          )
+        }
         value={userFormData.dateTime}
+        name="dateTime"
       />
       <Button
-        // (
-        //   userFormData.patientName &&
-        //   userFormData.doctorName &&
-        //   userFormData.dateTime
-        // )
-
+        disabled={
+          !(
+            userFormData.patientName &&
+            userFormData.doctorName &&
+            userFormData.dateTime
+          )
+        }
         type="submit"
       >
         Submit
       </Button>
     </Form>
+    <div>
+       <Modal
+       trigger={<Button>Submit</Button>}
+       content={}
+     />
+     </div>
+     </>
   );
 };
 

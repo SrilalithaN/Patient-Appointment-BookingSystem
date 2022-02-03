@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const dateFormat = require("../utils/dateFormat");
+
 const appointmentSchema = new Schema({
   patientName: {
     type: String,
@@ -8,17 +8,6 @@ const appointmentSchema = new Schema({
     type: String,
   },
   dateTime: {
-    type: String,
-    
- 
-  },
-  doctorId: {
-    type: String,
-  },
-  dateId: {
-    type: String,
-  },
-  patientId: {
     type: String,
   },
 });

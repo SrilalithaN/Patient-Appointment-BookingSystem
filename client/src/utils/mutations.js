@@ -1,6 +1,5 @@
 import { gql } from "@apollo/client";
 
-
 export const SIGNUP = gql`
   mutation signup(
     $userName: String!
@@ -42,17 +41,13 @@ export const ADD_APPOINTMENT = gql`
     $dateTime: String!
   ) {
     addAppointment(
-      patientName: patientName
+      patientName: $patientName
       doctorName: $doctorName
       dateTime: $dateTime
-  
     ) {
-      appointments {
-        patientName
-        doctorName
-        dateTime
-       
-      }
+      patientName
+      doctorName
+      dateTime
     }
   }
 `;
@@ -66,7 +61,6 @@ export const CANCEL_APPOINTMENT = gql`
           patientName
           doctorName
           dateTime
-       
         }
       }
     }

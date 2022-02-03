@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useHistory, useLocation } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Button, Form, Icon, Message } from "semantic-ui-react";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";

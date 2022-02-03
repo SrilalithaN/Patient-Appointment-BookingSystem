@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDatePicker ,{ registerLocale } from "react-datepicker";
+import ReactDatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import addDays from "date-fns/addDays";
 import addMonths from "date-fns/addMonths";
@@ -8,32 +8,16 @@ import setMinutes from "date-fns/setMinutes";
 import enGB from "date-fns/locale/en-GB";
 registerLocale("en-GB", enGB);
 
-// const DatePicker =()=>{
-  
-//         const [startDate, setStartDate] = useState(new Date());
-//         return (
-//           <DatePicker
-//             selected={startDate}
-//             onChange={(date) => setStartDate(date)}
-//             showTimeSelect
-//             timeFormat="HH:mm"
-//             timeIntervals={15}
-//             timeCaption="time"
-//             dateFormat="MMMM d, yyyy h:mm aa"
-//           />
-//         );
-//       };
-
 
 class DatePicker extends React.Component {
   state = {
-    startDate: null
+    startDate: null,
   };
 
-  handleChange = date => {
+  handleChange = (date) => {
     this.setState({ startDate: date });
     //sending the date value to redux form store
-    this.props.input.onChange(date);
+    this.props.onChange(date);
   };
 
   render() {
@@ -64,7 +48,7 @@ class DatePicker extends React.Component {
             setHours(setMinutes(new Date(), 0), 14),
             setHours(setMinutes(new Date(), 15), 14),
             setHours(setMinutes(new Date(), 30), 14),
-            setHours(setMinutes(new Date(), 45), 14)
+            setHours(setMinutes(new Date(), 45), 14),
           ]}
           placeholderText="Click to select"
         />
