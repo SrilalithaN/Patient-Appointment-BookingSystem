@@ -13,10 +13,11 @@ const SignupForm = () => {
     email: "",
     password: "",
   });
-
+  const [error, setError] = useState(false);
   const history = useHistory();
 
   const handleInputChange = (event) => {
+    setError(false);
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
   };
@@ -29,19 +30,15 @@ const SignupForm = () => {
     try {
       const { data } = await signup({ variables: { ...userFormData } });
       Auth.login(data.signup.token);
-      console.log(userFormData);
       history.push("/appointments");
+      console.log(userFormData);
+  
     } catch (err) {
+      setError(true);
       console.error(err);
     }
+  }
 
-    // setUserFormData({
-    //   userName: "",
-    //   fullName: "",
-    //   email: "",
-    //   password: "",
-    // });
-  };
 
   return (
     <div>
@@ -50,6 +47,16 @@ const SignupForm = () => {
         header="Welcome to our booking system!"
         content="Fill out the form below to sign-up for a new account"
       />
+       {error === true ? (
+        <Message negative size="small">
+          <Message.Header>Error</Message.Header>
+          <p>
+            Invalid email address and/or password needs to exceed 5 characters!
+          </p>
+        </Message>
+      ) : (
+        ""
+      )}
       <Form
         className="attached fluid segment"
         onSubmit={handleFormSubmit}

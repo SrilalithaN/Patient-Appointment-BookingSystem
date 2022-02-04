@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form, Dropdown } from "semantic-ui-react";
+import { Button, Form, Dropdown ,Message} from "semantic-ui-react";
 import { useHistory } from "react-router-dom";
 import DatePicker from "./datePicker";
 import { useMutation } from "@apollo/client";
@@ -16,8 +16,10 @@ const AppointmentForm = () => {
     doctorName: "",
     dateTime: "",
   });
+  const [error, setError] = useState(false);
   const history = useHistory();
   const handleInputChange = (event, { value, name }) => {
+    setError(false);
     setUserFormData({ ...userFormData, [name]: value });
   };
 
@@ -32,6 +34,7 @@ const AppointmentForm = () => {
       console.log(userFormData);
       history.push("/user");
     } catch (err) {
+      setError(true);
       console.error(err);
     }
 
@@ -46,6 +49,14 @@ const AppointmentForm = () => {
 
     <Form className="appointment" onSubmit={handleFormSubmit} size="large">
       <h2>Book an Appointment</h2>
+      {error === true ? (
+          <Message negative size="tiny">
+            <Message.Header>Error</Message.Header>
+            <p>Please Enter the correct details!</p>
+          </Message>
+        ) : (
+          ""
+        )}
       <Form.Input
         width={6}
         label="Patient Name"
