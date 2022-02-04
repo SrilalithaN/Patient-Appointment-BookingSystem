@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Button, Form, Dropdown } from "semantic-ui-react";
+import { useHistory } from "react-router-dom";
 import DatePicker from "./datePicker";
 import { useMutation } from "@apollo/client";
 import { ADD_APPOINTMENT } from "../utils/mutations";
-
+// import User from "../components/User";
 const options = [
   { key: "n", text: "Dr.N.S.R.Murthy", value: "dr.n.s.r.murthy" },
   { key: "d", text: "Dr.Deepak Nookala", value: "dr.deepak nookala" },
@@ -15,6 +16,7 @@ const AppointmentForm = () => {
     doctorName: "",
     dateTime: "",
   });
+  const history = useHistory();
   const handleInputChange = (event, { value, name }) => {
     setUserFormData({ ...userFormData, [name]: value });
   };
@@ -28,19 +30,20 @@ const AppointmentForm = () => {
      
       await addAppointment({ variables: { ...userFormData } });
       console.log(userFormData);
+      history.push("/user");
     } catch (err) {
       console.error(err);
     }
 
-    setUserFormData({
-      patientName: "",
-      doctorName: "",
-      dateTime: "",
-    });
+    // setUserFormData({
+    //   patientName: "",
+    //   doctorName: "",
+    //   dateTime: "",
+    // });
   };
 
   return (
-    <>
+
     <Form className="appointment" onSubmit={handleFormSubmit} size="large">
       <h2>Book an Appointment</h2>
       <Form.Input
@@ -77,6 +80,7 @@ const AppointmentForm = () => {
         value={userFormData.dateTime}
         name="dateTime"
       />
+    
       <Button
         disabled={
           !(
@@ -89,14 +93,10 @@ const AppointmentForm = () => {
       >
         Submit
       </Button>
+    
+      
     </Form>
-    <div>
-       <Modal
-       trigger={<Button>Submit</Button>}
-       content={}
-     />
-     </div>
-     </>
+ 
   );
 };
 

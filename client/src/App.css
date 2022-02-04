@@ -73,6 +73,8 @@ nav a:hover {
 .login {
   margin-bottom: 6rem;
 }
-.imgclinic , .appointment{
+.imgclinic,
+.appointment,
+.patientinfo {
   margin-bottom: 3rem;
 }

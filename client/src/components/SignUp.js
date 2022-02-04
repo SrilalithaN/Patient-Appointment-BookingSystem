@@ -8,8 +8,8 @@ import { SIGNUP } from "../utils/mutations";
 
 const SignupForm = () => {
   const [userFormData, setUserFormData] = useState({
-    firstName: "",
-    lastName: "",
+    userName: "",
+    fullName: "",
     email: "",
     password: "",
   });
@@ -29,6 +29,7 @@ const SignupForm = () => {
     try {
       const { data } = await signup({ variables: { ...userFormData } });
       Auth.login(data.signup.token);
+      console.log(userFormData);
       history.push("/appointments");
     } catch (err) {
       console.error(err);
