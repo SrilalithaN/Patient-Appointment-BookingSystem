@@ -1,12 +1,18 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { GET_PATIENTINFO } from "../utils/queries";
+import Auth from "../utils/auth";
+import { Button } from "semantic-ui-react";
 
 const PatientData = () => {
   const { loading, data } = useQuery(GET_PATIENTINFO);
   const patient = data?.patient || [];
   console.log(patient);
-debugger;
+
+  const logout = event => {
+    event.preventDefault();
+    Auth.logout();
+  };
   if (loading) {
     return <h2>LOADING...</h2>;
   }
@@ -17,6 +23,12 @@ debugger;
       <p>Patient Name: {patient.appointments.patientName}</p>
       <p>Doctor Name: {patient.appointments.doctorName}</p>
       <p> Date and Time of Appointment: {patient.appointments.dateTime}</p>
+      <Button
+        onClick={logout}
+          type="submit"
+        >
+          Logout
+        </Button>
     </div>
   );
 };
