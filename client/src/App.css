@@ -8,37 +8,86 @@
   --poppins: "Poppins", sans-serif;
   --zilla: "Zilla Slab", serif;
 }
-nav,
-.footer {
+.footer,
+.navbar1,
+.navbar {
   background-image: url("./images/mochaGrunge.png");
 }
-nav ul {
-  margin-top: 0%;
-  margin-bottom: 0%;
-  padding-top: 0%;
-  border-bottom: white 2px solid;
+.navbar1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top:1rem;
+  margin-bottom: 0rem;
+}
+.navbar1 > h2 {
+  color: black;
+  font-style: var(--poppins);
+}
+.navbar {
+  border-bottom: 2px solid black;
+  height: 5rem;
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  justify-content: left;
+  margin-top : 0rem;
+  margin-bottom : 0rem;
+  padding-bottom: 2rem;
+}
+
+
+
+.nav-menu {
+  margin-bottom: 0%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
   list-style-type: none;
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-family: var(--poppins);
   font-weight: bold;
+  list-style: none;
+  padding-bottom:0rem;
 }
+
+
+
+.nav-links {
+  color: black;
+  text-decoration: none;
+  /* padding:1rem; */
+  padding-bottom:5rem;
+ 
+
+}
+
+
+.nav-item > .active > li {
+  background-color: rgb(0, 0, 0);
+}
+
+.fa-bars {
+  color: black;
+}
+
+.nav-links-mobile {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+}
+
 
 nav li {
-  padding: 1rem 2rem;
+  padding: 1rem 1rem;
+
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  text-transform: uppercase;
-}
 
 nav a:hover {
   color: white;
-}
+} 
 .title {
   font-family: var(--poppins);
   font-size: 1.5rem;
@@ -60,9 +109,9 @@ nav a:hover {
 
 .contactinfo,
 .hours {
-  color: white;
+  color:black;
   font-size: 1.5rem;
-  margin-top: 2.5rem;
+  margin-top: 1rem;
 }
 .hours {
   margin-left: 2rem;
@@ -77,4 +126,56 @@ nav a:hover {
 .appointment,
 .patientinfo {
   margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 960px) {
+  /* .NavbarItems {
+    position: relative;
+  } */
+.html{
+  width:100%;
+}
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 40vh;
+    position: absolute;
+    top: 7rem;
+    left: -100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+  }
+
+  .nav-menu.active {
+    background: grey;
+    left: 0;
+    opacity: 0.8;
+    transition: all 0.5s ease;
+    z-index: 1;
+  }
+
+  .nav-links {
+  color:black;
+    text-align: center;
+    padding: 1rem;
+    width: 100%;
+    display: table;
+  }
+  .menu-icon {
+    display: block;
+    position: absolute;
+    cursor: pointer;
+  }
+  .fa-bars ,.fa-times{
+    position: absolute;
+    left:2rem;
+    top:1rem;
+    color: black;
+    font-size: 3rem;
+  }
+
+  .in-line {
+    background-image: url('./images/mochaGrunge.png');  
+  }
 }
