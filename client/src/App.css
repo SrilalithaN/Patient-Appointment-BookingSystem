@@ -125,6 +125,9 @@ nav li {
   background-color: white;
   color: black;
 }
+
+
+
 @media screen and (max-width: 960px) {
   .nav-menu {
     display: flex;
@@ -167,7 +170,7 @@ nav li {
     font-size: 3rem;
   }
 
-  .in-line {
+  /* .in-line {
     background-image: url("./images/mochaGrunge.png");
-  }
+  } */
 }

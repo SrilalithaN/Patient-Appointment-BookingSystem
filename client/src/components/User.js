@@ -5,13 +5,13 @@ import Auth from "../utils/auth";
 import { Button } from "semantic-ui-react";
 // import { formatInTimeZone } from "date-fns-tz";
 // import { utcToZonedTime } from 'date-fns-tz'
-
+// import enGB from 'date-fns/locale/en-GB'
 const PatientData = () => {
   const { loading, data } = useQuery(GET_PATIENTINFO);
   const patient = data?.patient || [];
   console.log(patient);
   // const timeZone = "Australia/Melbourne";
-  // const zonedDate = utcToZonedTime(patient.appointments[0].dateTime,timeZone)
+  // const zonedDate = (patient.appointments[0].dateTime).toLocaleString('en-GB')
   // console.log(zonedDate);
 
   const logout = (event) => {
