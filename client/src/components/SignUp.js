@@ -4,7 +4,7 @@ import { Button, Form, Icon, Message } from "semantic-ui-react";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { SIGNUP } from "../utils/mutations";
-//  import Appointments from "../components/Appointments";
+
 
 const SignupForm = () => {
   const [userFormData, setUserFormData] = useState({

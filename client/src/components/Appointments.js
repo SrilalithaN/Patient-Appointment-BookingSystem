@@ -5,10 +5,7 @@ import { useMutation } from "@apollo/client";
 import { ADD_APPOINTMENT } from "../utils/mutations";
 import Auth from "../utils/auth";
 import { useHistory } from "react-router-dom";
-// import SemanticDatepicker from "react-semantic-ui-datepickers";
-// import "react-semantic-ui-datepickers/dist/react-semantic-ui-datepickers.css";
-// import { FormatDate } from "../utils/helpers";
-// import User from "../components/User";
+
 const docOptions = [
   { key: "n", text: "Dr.N.S.R.Murthy", value: "Dr.N.S.R.Murthy" },
   { key: "d", text: "Dr.Deepak Nookala", value: "Dr.Deepak Nookala" },
@@ -40,16 +37,11 @@ const AppointmentForm = () => {
     try {
       await addAppointment({ variables: { ...userFormData } });
       console.log(userFormData);
-      history.push("/user");
+      history.push("/patient");
     } catch (err) {
       setError(true);
       console.error(err);
     }
-    // setUserFormData({
-    //  patientName: "",
-    //   doctorName: "",
-    //   dateTime:"",
-    // });
   };
 
   return (
@@ -89,8 +81,8 @@ const AppointmentForm = () => {
         width={6}
         label="Date-Time"
         control={DatePicker}
-        onChange={handleInputChange}  
-         value={(userFormData.dateTime)}
+        
+      
         onChange={(value) =>
           handleInputChange(
             {},
@@ -100,12 +92,7 @@ const AppointmentForm = () => {
         value={(userFormData.dateTime)}
         name="dateTime"
       />
-      {/* <SemanticDatepicker
-       onChange = {handleInputChange}
-        value={userFormData.dateTime}
-        name="dateTime"
-        format = {FormatDate(userFormData.dateTime)}
-      /> */}
+     
 
       <Modal
         centered={false}

@@ -53,10 +53,10 @@ const Home = () => {
       </Card.Description>
     </Card.Content>
     <Card.Content extra>
-      <a>
+    
         <Icon name='phone' />
-      +91880242666
-      </a>
+      +91883242666
+      
     </Card.Content>
   </Card>
         </Grid.Column>

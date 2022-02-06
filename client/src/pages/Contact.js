@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form,  Message, TextArea } from "semantic-ui-react";
 
-
-
 const ContactForm = () => {
   const [userFormData, setUserFormData] = useState({
     fullName: "",
@@ -11,18 +9,12 @@ const ContactForm = () => {
   });
 
   const handleInputChange = (event) => {
-  
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
-  
   };
 
   const handleFormSubmit = async (event) => {
-  
     event.preventDefault();
-
-  
-
     setUserFormData({
       fullName: "",
       email: "",

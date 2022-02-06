@@ -104,18 +104,22 @@ nav li {
 }
 .login,
 .appointment,
-.contact {
+.contact   {
   padding-bottom: 15rem;
   margin-left: 2rem;
 }
-.options {
-  border: 2px solid black;
+.user{
+  font-weight: bold;
 }
-
+.patientinfo{
+  padding-left: 13rem;
+  margin-bottom: 15rem;
+}
+/* 
 .imgclinic,
 .patientinfo {
-  margin-bottom: 3rem;
-}
+
+} */
 .copy {
   font-size: 1.5rem;
   padding-top: 1rem;
