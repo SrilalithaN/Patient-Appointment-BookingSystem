@@ -31,7 +31,7 @@
   font-style: var(--poppins);
 }
 .navbar {
-  /* border-bottom: 2px solid black; */
+  
   height: 5rem;
   display: flex;
   flex-wrap: wrap;
