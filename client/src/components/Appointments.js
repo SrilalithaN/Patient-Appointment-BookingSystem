@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Button, Form, Dropdown, Message, Modal,Select} from "semantic-ui-react";
+import { Button, Form, Message, Modal,Select} from "semantic-ui-react";
 import DatePicker from "./datePicker";
 import { useMutation } from "@apollo/client";
 import { ADD_APPOINTMENT } from "../utils/mutations";
 import Auth from "../utils/auth";
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 // import { FormatDate } from "../utils/helpers";
 // import User from "../components/User";
 const docOptions = [
@@ -19,7 +19,7 @@ const AppointmentForm = () => {
     dateTime: "",
   });
   const [error, setError] = useState(false);
-  // const history = useHistory();
+   const history = useHistory();
   const [open, setOpen] = React.useState(false)
   const logout = (event) => {
     event.preventDefault();
@@ -37,7 +37,7 @@ const AppointmentForm = () => {
 
     try {
       await addAppointment({ variables: { ...userFormData } });
-    
+      history.push("/user");
      
     } 
     catch (err) {
