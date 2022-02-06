@@ -39,15 +39,18 @@ export const ADD_APPOINTMENT = gql`
     $patientName: String!
     $doctorName: String!
     $dateTime: String!
+ 
   ) {
     addAppointment(
       patientName: $patientName
       doctorName: $doctorName
       dateTime: $dateTime
+    
     ) {
       patientName
       doctorName
       dateTime
+    
     }
   }
 `;
@@ -61,6 +64,7 @@ export const CANCEL_APPOINTMENT = gql`
           patientName
           doctorName
           dateTime
+       
         }
       }
     }

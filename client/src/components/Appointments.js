@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { Button, Form, Dropdown, Message } from "semantic-ui-react";
-import { useHistory } from "react-router-dom";
+import { Button, Form, Dropdown, Message, Modal,Select} from "semantic-ui-react";
 import DatePicker from "./datePicker";
 import { useMutation } from "@apollo/client";
 import { ADD_APPOINTMENT } from "../utils/mutations";
 import Auth from "../utils/auth";
+// import { useHistory } from "react-router-dom";
+// import { FormatDate } from "../utils/helpers";
 // import User from "../components/User";
-const options = [
-  { key: "n", text: "Dr.N.S.R.Murthy", value: "dr.n.s.r.murthy" },
-  { key: "d", text: "Dr.Deepak Nookala", value: "dr.deepak nookala" },
-  { key: "p", text: "Dr.Pragnya Karri", value: "dr.pragnya karri" },
+const docOptions = [
+  { key: "n", text: "Dr.N.S.R.Murthy", value: "Dr.N.S.R.Murthy" },
+  { key: "d", text: "Dr.Deepak Nookala", value: "Dr.Deepak Nookala" },
+  { key: "p", text: "Dr.Pragnya Karri", value: "Dr.Pragnya Karri" },
 ];
 const AppointmentForm = () => {
   const [userFormData, setUserFormData] = useState({
@@ -18,7 +19,8 @@ const AppointmentForm = () => {
     dateTime: "",
   });
   const [error, setError] = useState(false);
-  const history = useHistory();
+  // const history = useHistory();
+  const [open, setOpen] = React.useState(false)
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
@@ -29,31 +31,33 @@ const AppointmentForm = () => {
   };
 
   const [addAppointment] = useMutation(ADD_APPOINTMENT);
-  console.log(userFormData);
+ 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
       await addAppointment({ variables: { ...userFormData } });
-      console.log(userFormData);
-      history.push("/user");
-    } catch (err) {
+    
+     
+    } 
+    catch (err) {
       setError(true);
       console.error(err);
     }
-
     // setUserFormData({
-    //   patientName: "",
+    //  patientName: "",
     //   doctorName: "",
-    //   dateTime: "",
+    //   dateTime:"",
     // });
+
+  
   };
 
   return (
-    <Form className="appointment" onSubmit={handleFormSubmit} size="large">
+    <Form className="appointment" onSubmit={handleFormSubmit} size="huge">
       <h2>Book an Appointment</h2>
       {error === true ? (
-        <Message negative size="tiny">
+        <Message negative size="small">
           <Message.Header>Error</Message.Header>
           <p>Please Enter the correct details!</p>
         </Message>
@@ -70,12 +74,13 @@ const AppointmentForm = () => {
         value={userFormData.patientName}
       />
 
-      <Form.Field
+      <Form.Input
+      className="dropdown"
         width={6}
-        control={Dropdown}
+        control={Select}
         label="Doctor Name"
         name="doctorName"
-        options={options}
+        options={docOptions}
         placeholder="Doctor"
         onChange={handleInputChange}
         value={userFormData.doctorName}
@@ -91,11 +96,16 @@ const AppointmentForm = () => {
             { name: "dateTime", value: value.toISOString() }
           )
         }
-        value={userFormData.dateTime}
+        value={(userFormData.dateTime)}
         name="dateTime"
       />
-
-      <Button
+           
+           <Modal
+      centered={false}
+      open={open}
+      onClose={() => setOpen(false)}
+      onOpen={() => setOpen(true)}
+      trigger={     <Button
         disabled={
           !(
             userFormData.patientName &&
@@ -104,10 +114,28 @@ const AppointmentForm = () => {
           )
         }
         type="submit"
+        size ="huge"
+        color="blue"
       >
         Submit
-      </Button>
-      <Button onClick={logout} type="submit">
+      </Button>}
+    >
+      <Modal.Header>Thank you for booking an Appointment with us!</Modal.Header>
+      <Modal.Content>
+        <Modal.Description>
+     
+      <h2>Here are your appointment details:</h2>
+      <h4>Patient Name: {userFormData.patientName}</h4>
+      <h4>Doctor Name: {userFormData.doctorName}</h4>
+      <h4> Date and Time of Appointment: {(userFormData.dateTime)}</h4>
+        </Modal.Description>
+      </Modal.Content>
+      <Modal.Actions>
+        <Button onClick={() => setOpen(false)}>OK</Button>
+      </Modal.Actions>
+    </Modal>
+ 
+      <Button onClick={logout} type="submit" size ="huge" color="blue">
         Logout
       </Button>
     </Form>

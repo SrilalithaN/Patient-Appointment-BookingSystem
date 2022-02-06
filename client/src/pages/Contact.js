@@ -33,11 +33,12 @@ const ContactForm = () => {
   return (
     <div>
       <Message
-        attached
+         size="large"
+        className="container"
         header="Contact Us!"
-        content="Fill out the form below and we shall get in touch with you"
+        content="Drop in your questions and suggestions here! "
       />
-      <Form className="attached fluid segment" onSubmit={handleFormSubmit} size="large">
+      <Form className="contact" onSubmit={handleFormSubmit} size="huge">
       
         <Form.Input
           fluid
@@ -69,7 +70,7 @@ const ContactForm = () => {
           value={userFormData.message}
         />
 
-        <Button color="blue" type="submit">
+        <Button color="blue" type="submit" size="huge">
           Submit
         </Button>
       </Form>
