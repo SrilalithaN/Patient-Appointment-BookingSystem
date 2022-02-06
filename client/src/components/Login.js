@@ -4,9 +4,7 @@ import { useHistory } from "react-router-dom";
 import Auth from "../utils/auth";
 import { LOGIN_USER } from "../utils/mutations";
 import { Button, Form, Message } from "semantic-ui-react";
-// import SignUp from "./SignUp";
-import Appointments from "./Appointments";
-// import { Link } from "react-router-dom";
+
 
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
@@ -36,14 +34,14 @@ const LoginForm = () => {
       email: "",
       password: "",
     });
-    return <Appointments />;
+
   };
   return (
-    <div>
-      <Form size="large" className="login" onSubmit={handleFormSubmit}>
+    <div className="container">
+      <Form size="huge" className="login" onSubmit={handleFormSubmit} >
         <h2>Log In to make a booking</h2>
         {error === true ? (
-          <Message negative size="tiny">
+          <Message negative size="small"  className="container" >
             <Message.Header>Error</Message.Header>
             <p>Incorrect credentials!</p>
           </Message>
@@ -74,6 +72,8 @@ const LoginForm = () => {
         <Button
           disabled={!(userFormData.email && userFormData.password)}
           type="submit"
+          size ="huge"
+          color="blue"
         >
           Log In
         </Button>

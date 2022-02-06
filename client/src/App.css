@@ -8,16 +8,22 @@
   --poppins: "Poppins", sans-serif;
   --zilla: "Zilla Slab", serif;
 }
-.footer,
+
 .navbar1,
-.navbar {
-  background-image: url("./images/mochaGrunge.png");
+.navbar,
+.copy {
+  background-image: url(./images/dust_scratches.png);
+}
+.container {
+  background-image: url(./images/hospital2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .navbar1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top:1rem;
+  padding-top: 1rem;
   margin-bottom: 0rem;
 }
 .navbar1 > h2 {
@@ -25,17 +31,15 @@
   font-style: var(--poppins);
 }
 .navbar {
-  border-bottom: 2px solid black;
+  /* border-bottom: 2px solid black; */
   height: 5rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
-  margin-top : 0rem;
-  margin-bottom : 0rem;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
   padding-bottom: 2rem;
 }
-
-
 
 .nav-menu {
   margin-bottom: 0%;
@@ -47,20 +51,15 @@
   font-family: var(--poppins);
   font-weight: bold;
   list-style: none;
-  padding-bottom:0rem;
+  padding-bottom: 0rem;
 }
-
-
 
 .nav-links {
   color: black;
   text-decoration: none;
   /* padding:1rem; */
-  padding-bottom:5rem;
- 
-
+  padding-bottom: 5rem;
 }
-
 
 .nav-item > .active > li {
   background-color: rgb(0, 0, 0);
@@ -78,63 +77,55 @@
   display: none;
 }
 
-
 nav li {
   padding: 1rem 1rem;
-
 }
 
-
-nav a:hover {
-  color: white;
-} 
-.title {
-  font-family: var(--poppins);
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: white;
-  margin: 0rem;
-  padding-left: 1rem;
+.signup {
+  margin-left: 2rem;
+  margin-bottom: 2rem;
 }
-
-.form-input {
-  width: 20rem;
+.container {
+  padding-top: 1rem;
 }
 .img {
   margin: 2rem;
 }
-.homeContainer {
-  background-image: url("./images/dust_scratches.png");
-}
 
 .contactinfo,
 .hours {
-  color:black;
-  font-size: 1.5rem;
+  color: black;
+  font-size: 1rem;
   margin-top: 1rem;
 }
-.hours {
-  margin-left: 2rem;
-}
+
 .contactinfo {
   margin-right: 2rem;
 }
-.login {
-  margin-bottom: 6rem;
-}
-.imgclinic,
+.login,
 .appointment,
+.contact {
+  padding-bottom: 15rem;
+  margin-left: 2rem;
+}
+.options {
+  border: 2px solid black;
+}
+
+.imgclinic,
 .patientinfo {
   margin-bottom: 3rem;
 }
-
-@media screen and (max-width: 960px) {
-  /* .NavbarItems {
-    position: relative;
-  } */
-.html{
-  width:100%;
+.copy {
+  font-size: 1.5rem;
+  padding-top: 1rem;
+  text-align: center;
+  width: 100%;
+  height: 5rem;
+  background-color: white;
+  color: black;
 }
+@media screen and (max-width: 960px) {
   .nav-menu {
     display: flex;
     flex-direction: column;
@@ -156,7 +147,7 @@ nav a:hover {
   }
 
   .nav-links {
-  color:black;
+    color: black;
     text-align: center;
     padding: 1rem;
     width: 100%;
@@ -167,15 +158,16 @@ nav a:hover {
     position: absolute;
     cursor: pointer;
   }
-  .fa-bars ,.fa-times{
+  .fa-bars,
+  .fa-times {
     position: absolute;
-    left:2rem;
-    top:1rem;
+    left: 2rem;
+    top: 1rem;
     color: black;
     font-size: 3rem;
   }
 
   .in-line {
-    background-image: url('./images/mochaGrunge.png');  
+    background-image: url("./images/mochaGrunge.png");
   }
 }

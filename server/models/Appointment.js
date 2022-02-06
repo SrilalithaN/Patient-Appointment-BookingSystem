@@ -9,7 +9,7 @@ const appointmentSchema = new Schema({
   },
   dateTime: {
     type: String,
-  },
+  }
 });
 
 const Appointment = model("Appointment", appointmentSchema);

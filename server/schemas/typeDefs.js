@@ -21,12 +21,6 @@ const typeDefs = gql`
     user: User
   }
 
-  input AppointmentInput {
-    patientName: String!
-    doctorName: String!
-    dateTime: String!
-  }
-
   type Query {
     patient: User
   }
@@ -39,11 +33,13 @@ const typeDefs = gql`
       password: String!
       fullName: String!
     ): Auth
+
     addAppointment(
       patientName: String!
       doctorName: String!
       dateTime: String!
     ): Appointment
+
     cancelAppointment(bookingId: ID!): Appointment
   }
 `;

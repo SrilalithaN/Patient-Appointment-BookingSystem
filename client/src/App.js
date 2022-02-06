@@ -39,9 +39,11 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
+      <Router >
         <Navbar />
-        <Switch>
+        <div className="container" >
+        
+        <Switch >
           <Route exact path="/" component={Home} />
           <Route exact path="/bookings" component={Bookings} />
           <Route exact path="/contact" component={Contact} />
@@ -50,10 +52,9 @@ function App() {
           <Route exact path="/user" component={User} />
           <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
         </Switch>
+        </div>
       </Router>
-      <div>
-        <Footer />
-      </div>
+      <Footer />
     </ApolloProvider>
   );
 }

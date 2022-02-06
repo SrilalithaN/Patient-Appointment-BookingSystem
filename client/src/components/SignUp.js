@@ -41,14 +41,15 @@ const SignupForm = () => {
 
 
   return (
-    <div>
+    <div className="container">
       <Message
-        attached
+       className="container"
+       size="large"
         header="Welcome to our booking system!"
         content="Fill out the form below to sign-up for a new account"
       />
        {error === true ? (
-        <Message negative size="small">
+        <Message negative size="large"   className="container">
           <Message.Header>Error</Message.Header>
           <p>
             Invalid email address and/or password needs to exceed 5 characters!
@@ -58,9 +59,9 @@ const SignupForm = () => {
         ""
       )}
       <Form
-        className="attached fluid segment"
+        className="signup"
         onSubmit={handleFormSubmit}
-        size="large"
+        size="huge"
       >
         <Form.Input
           fluid
@@ -101,11 +102,11 @@ const SignupForm = () => {
           value={userFormData.password}
         />
 
-        <Button color="blue" type="submit">
+        <Button color="blue" type="submit" size="huge">
           Submit
         </Button>
       </Form>
-      <Message attached="bottom" warning>
+      <Message attached="bottom" warning size ="huge">
         <Icon name="help" />
         Already signed up?&nbsp;<Link to="/login/">Login here </Link>{" "}
         &nbsp;instead.
