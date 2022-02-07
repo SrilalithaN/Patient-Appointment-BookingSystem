@@ -30,7 +30,7 @@ const ContactForm = () => {
         header="Contact Us!"
         content="Drop in your questions and suggestions here! "
       />
-      <Form className="contact" onSubmit={handleFormSubmit} size="huge">
+      <Form className="contact" onSubmit={handleFormSubmit} size="large">
       
         <Form.Input
           fluid
@@ -62,7 +62,7 @@ const ContactForm = () => {
           value={userFormData.message}
         />
 
-        <Button color="blue" type="submit" size="huge">
+        <Button color="blue" type="submit" size="large">
           Submit
         </Button>
       </Form>

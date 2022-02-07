@@ -61,11 +61,11 @@ const SignupForm = () => {
       <Form
         className="signup"
         onSubmit={handleFormSubmit}
-        size="huge"
+        size="large"
       >
         <Form.Input
           fluid
-          width={6}
+          width={8}
           label="Full Name"
           placeholder="Full Name"
           name="fullName"
@@ -75,7 +75,7 @@ const SignupForm = () => {
         />
         <Form.Input
           fluid
-          width={6}
+          width={8}
           label="Username"
           placeholder="Username"
           name="userName"
@@ -85,7 +85,7 @@ const SignupForm = () => {
         />
 
         <Form.Input
-          width={6}
+          width={8}
           label="Email"
           placeholder="patient.name@test.com"
           name="email"
@@ -94,7 +94,7 @@ const SignupForm = () => {
           value={userFormData.email}
         />
         <Form.Input
-          width={6}
+          width={8}
           label="Password"
           type="password"
           name="password"
@@ -102,11 +102,11 @@ const SignupForm = () => {
           value={userFormData.password}
         />
 
-        <Button color="blue" type="submit" size="huge">
+        <Button color="blue" type="submit" size="large">
           Submit
         </Button>
       </Form>
-      <Message attached="bottom" warning size ="huge">
+      <Message attached="bottom" warning size ="large">
         <Icon name="help" />
         Already signed up?&nbsp;<Link to="/login/">Login here </Link>{" "}
         &nbsp;instead.

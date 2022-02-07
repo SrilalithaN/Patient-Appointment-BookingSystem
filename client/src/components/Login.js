@@ -38,7 +38,7 @@ const LoginForm = () => {
   };
   return (
     <div className="container">
-      <Form size="huge" className="login" onSubmit={handleFormSubmit} >
+      <Form size="large" className="login" onSubmit={handleFormSubmit} >
         <h2>Log In to make a booking</h2>
         {error === true ? (
           <Message negative size="small"  className="container" >
@@ -72,7 +72,7 @@ const LoginForm = () => {
         <Button
           disabled={!(userFormData.email && userFormData.password)}
           type="submit"
-          size ="huge"
+          size ="large"
           color="blue"
         >
           Log In

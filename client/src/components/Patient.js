@@ -4,7 +4,7 @@ import { GET_PATIENTINFO } from "../utils/queries";
 import Auth from "../utils/auth";
 import { Button } from "semantic-ui-react";
 import { formatInTimeZone } from "date-fns-tz";
-// import { Segment  , Message} from 'semantic-ui-react'
+
 
 
 const PatientData = () => {
@@ -45,26 +45,6 @@ const PatientData = () => {
       </Button>
  </div>
 
-  // <div className="container">
-  //    <Message
-  //      className="container"
-  //      size="large"
-  //       header=" Hello" {patient.fullName} "Thank you for booking an Appointment with us!"
-    
-  //     />
-  //   <Segment vertical>
-  //     Te eum doming eirmod, nominati pertinacia argumentum ad his.
-  //   </Segment>
-  //   <Segment vertical>Pellentesque habitant morbi tristique senectus.</Segment>
-  //   <Segment vertical>
-  //     Eu quo homero blandit intellegebat. Incorrupte consequuntur mei id.
-  //   </Segment>
- 
-
-  //     <Button size = "large" onClick={logout}  color ="blue" type="submit">
-  //       Logout
-  //     </Button>
-  //   </div>
   );
 };
 export default PatientData;

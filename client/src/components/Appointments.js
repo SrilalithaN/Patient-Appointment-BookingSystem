@@ -45,7 +45,7 @@ const AppointmentForm = () => {
   };
 
   return (
-    <Form className="appointment" onSubmit={handleFormSubmit} size="huge">
+    <Form className="appointment" onSubmit={handleFormSubmit} size="large">
       <h2>Book an Appointment</h2>
       {error === true ? (
         <Message negative size="small">
@@ -56,7 +56,7 @@ const AppointmentForm = () => {
         ""
       )}
       <Form.Input
-        width={6}
+        width={8}
         label="Patient Name"
         type="text"
         placeholder="Harry"
@@ -67,7 +67,7 @@ const AppointmentForm = () => {
 
       <Form.Input
         className="dropdown"
-        width={6}
+        width={8}
         control={Select}
         label="Doctor Name"
         name="doctorName"
@@ -78,7 +78,7 @@ const AppointmentForm = () => {
       />
 
       <Form.Field
-        width={6}
+        width={8}
         label="Date-Time"
         control={DatePicker}
         
@@ -109,7 +109,7 @@ const AppointmentForm = () => {
               )
             }
             type="submit"
-            size="huge"
+            size="large"
             color="blue"
           >
             Submit
@@ -132,7 +132,7 @@ const AppointmentForm = () => {
         </Modal.Actions>
       </Modal>
 
-      <Button onClick={logout} type="submit" size="huge" color="blue">
+      <Button onClick={logout} type="submit" size="large" color="blue">
         Logout
       </Button>
     </Form>

@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div className="homeContainer">
       <Grid columns={2} padded>
-        <Card.Group itemsPerRow={3}>
+        <Card.Group itemsPerRow={3} className="clinicInfo">
           <Card className="cardinfo">
             <Image src={image1} wrapped ui={false} size="tiny" />
             <Card.Content>
