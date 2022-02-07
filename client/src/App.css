@@ -12,7 +12,7 @@
 .navbar1,
 .navbar,
 .copy {
-  background-image: url(./images/dust_scratches.png);
+  background-image: url(./images/dust_scratches.png); 
 }
 .container {
   background-image: url(./images/hospital2.jpg);
@@ -54,12 +54,12 @@
   padding-bottom: 0rem;
 }
 
-.nav-links {
+ .nav-links {
   color: black;
   text-decoration: none;
-  /* padding:1rem; */
+  padding:1rem; 
   padding-bottom: 5rem;
-}
+} 
 
 .nav-item > .active > li {
   background-color: rgb(0, 0, 0);
@@ -71,15 +71,15 @@
 
 .nav-links-mobile {
   display: none;
-}
+} 
 
-.menu-icon {
+ .menu-icon {
   display: none;
-}
+} 
 
-nav li {
+ nav li {
   padding: 1rem 1rem;
-}
+} 
 
 .signup {
   margin-left: 2rem;
@@ -111,15 +111,11 @@ nav li {
 .user{
   font-weight: bold;
 }
-.patientinfo{
-  padding-left: 13rem;
-  margin-bottom: 15rem;
+.patientInfo{
+  padding-left: 1rem;
+  padding-bottom: 2rem;
 }
-/* 
-.imgclinic,
-.patientinfo {
 
-} */
 .copy {
   font-size: 1.5rem;
   padding-top: 1rem;
@@ -130,13 +126,15 @@ nav li {
   color: black;
 }
 
+.clinicInfo{
+  padding-bottom: 2rem;
+}
 
-
-@media screen and (max-width: 960px) {
+ @media screen and (max-width: 600px) {
   .nav-menu {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 40%;
     height: 40vh;
     position: absolute;
     top: 7rem;
@@ -172,9 +170,31 @@ nav li {
     top: 1rem;
     color: black;
     font-size: 3rem;
-  }
-
+  } 
+ }
   /* .in-line {
     background-image: url("./images/mochaGrunge.png");
   } */
-}
+/* } */
+/* @media screen and (max-width: 500px){
+
+  .list {
+      flex-direction: column;
+      height: auto;
+  }
+  .items:nth-child(1){
+      border-top: 1px solid rgba(255, 255, 255, 0.555);
+      margin-top: 50px;
+  }
+  .items {
+      width: 100%;
+      border-top: 1px solid rgba(255, 255, 255, 0.555);
+      text-align: center;
+      margin-right: 0px;
+      padding: 20px 0;
+  }
+  .btn {
+      display: block;
+  }
+
+} */

@@ -31,8 +31,8 @@ const PatientData = () => {
     return <h2>LOADING...</h2>;
   }
   return (
-    <div key={patient._id}>
-      <p className="patientInfo">
+    <div className="patientInfo" key={patient._id}>
+      <p >
   
         Hello <span className="user">{patient.fullName}!</span> Thank you for booking an Appointment with us!
       </p>
