@@ -36,9 +36,6 @@ You will need Node.js installed on your local machine
 - Once you make an appointment you will be redicrected to a user page with appointment details
 - To logout you can click the logout button.
 
-Warning: New data is stored on Heroku for an indeterminate period of time. At least once a day the dynos will be restarted and any new data included new users might be wiped out.
-
-
 
 ## Contributing
 
