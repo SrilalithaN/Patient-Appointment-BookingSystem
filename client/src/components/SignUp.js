@@ -5,7 +5,6 @@ import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { SIGNUP } from "../utils/mutations";
 
-
 const SignupForm = () => {
   const [userFormData, setUserFormData] = useState({
     userName: "",
@@ -30,26 +29,24 @@ const SignupForm = () => {
     try {
       const { data } = await signup({ variables: { ...userFormData } });
       Auth.login(data.signup.token);
-      history.push("/appointments");
+      history.push("/login");
       console.log(userFormData);
-  
     } catch (err) {
       setError(true);
       console.error(err);
     }
-  }
-
+  };
 
   return (
     <div className="container">
       <Message
-       className="container"
-       size="large"
+        className="container"
+        size="large"
         header="Welcome to our booking system!"
         content="Fill out the form below to sign-up for a new account"
       />
-       {error === true ? (
-        <Message negative size="large"   className="container">
+      {error === true ? (
+        <Message negative size="large" className="container">
           <Message.Header>Error</Message.Header>
           <p>
             Invalid email address and/or password needs to exceed 5 characters!
@@ -58,11 +55,7 @@ const SignupForm = () => {
       ) : (
         ""
       )}
-      <Form
-        className="signup"
-        onSubmit={handleFormSubmit}
-        size="large"
-      >
+      <Form className="signup" onSubmit={handleFormSubmit} size="large">
         <Form.Input
           fluid
           width={8}
@@ -106,7 +99,7 @@ const SignupForm = () => {
           Submit
         </Button>
       </Form>
-      <Message attached="bottom" warning size ="large">
+      <Message attached="bottom" warning size="large">
         <Icon name="help" />
         Already signed up?&nbsp;<Link to="/login/">Login here </Link>{" "}
         &nbsp;instead.
