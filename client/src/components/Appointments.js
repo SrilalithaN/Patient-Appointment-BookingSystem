@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Button, Form, Message, Select } from "semantic-ui-react";
-import DatePicker from "./datePicker";
+
 import { useMutation } from "@apollo/client";
 import { ADD_APPOINTMENT } from "../utils/mutations";
 import Auth from "../utils/auth";
-import { useHistory } from "react-router-dom";
+import {  useHistory } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const docOptions = [
   { key: "n", text: "Dr.N.S.R.Murthy", value: "Dr.N.S.R.Murthy" },
@@ -24,11 +25,15 @@ const AppointmentForm = () => {
     event.preventDefault();
     Auth.logout();
   };
-  const handleInputChange = (event, { value, name }) => {
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
     setError(false);
     setUserFormData({ ...userFormData, [name]: value });
   };
-
+  const handleDoctorChange = (event, { value, name }) => {
+    setError(false);
+    setUserFormData({ ...userFormData, [name]: value });
+  };
   const [addAppointment] = useMutation(ADD_APPOINTMENT);
 
   const handleFormSubmit = async (event) => {
@@ -45,6 +50,9 @@ const AppointmentForm = () => {
   };
 
   return (
+    <div>
+      <Navbar/>
+    
     <Form className="appointment" onSubmit={handleFormSubmit} size="large">
       <h2>Book an Appointment</h2>
       {error === true ? (
@@ -73,24 +81,20 @@ const AppointmentForm = () => {
         name="doctorName"
         options={docOptions}
         placeholder="Doctor"
-        onChange={handleInputChange}
+        onChange={handleDoctorChange}
         value={userFormData.doctorName}
       />
 
-      <Form.Field
-        width={8}
-        label="Date-Time"
-        control={DatePicker}
-        onChange={(value) =>
-          handleInputChange(
-            {},
-            { name: "dateTime", value: value.toISOString() }
-          )
-        }
-        value={userFormData.dateTime}
-        name="dateTime"
-      />
-
+         <Form.Field width={8}>
+          <label>Date and Time</label>
+          <input
+            type="datetime-local"
+            className="date-time"
+            name="dateTime"
+            onChange={handleInputChange}
+            value={userFormData.dateTime}
+          />
+        </Form.Field>
       <Button
         disabled={
           !(
@@ -110,6 +114,7 @@ const AppointmentForm = () => {
         Logout
       </Button>
     </Form>
+    </div>
   );
 };
 

@@ -4,8 +4,7 @@ import { useHistory } from "react-router-dom";
 import Auth from "../utils/auth";
 import { LOGIN_USER } from "../utils/mutations";
 import { Button, Form, Message } from "semantic-ui-react";
-
-
+import Navbar from "./Navbar";
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [login] = useMutation(LOGIN_USER);
@@ -34,14 +33,14 @@ const LoginForm = () => {
       email: "",
       password: "",
     });
-
   };
   return (
     <div className="container">
-      <Form size="large" className="login" onSubmit={handleFormSubmit} >
+      <Navbar />
+      <Form size="large" className="login" onSubmit={handleFormSubmit}>
         <h2>Log In to make a booking</h2>
         {error === true ? (
-          <Message negative size="small"  className="container" >
+          <Message negative size="small" className="container">
             <Message.Header>Error</Message.Header>
             <p>Incorrect credentials!</p>
           </Message>
@@ -72,7 +71,7 @@ const LoginForm = () => {
         <Button
           disabled={!(userFormData.email && userFormData.password)}
           type="submit"
-          size ="large"
+          size="large"
           color="blue"
         >
           Log In

@@ -37,7 +37,7 @@
   flex-wrap: wrap;
   justify-content: left;
   margin-top: 0rem;
-  margin-bottom: 0rem;
+  margin-bottom: 2rem;
   padding-bottom: 2rem;
 }
 
@@ -112,7 +112,9 @@
   font-weight: bold;
 }
 .patientInfo{
-  padding-left: 1rem;
+padding: 1rem;
+}
+.patientCard{
   padding-bottom: 2rem;
 }
 
@@ -133,7 +135,7 @@
 
 
 
- @media screen and (max-width: 600px) {
+ @media screen and (max-width: 960px) {
   .nav-menu {
     display: flex;
     flex-direction: column;

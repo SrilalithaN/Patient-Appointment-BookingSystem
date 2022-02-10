@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Form,  Message, TextArea } from "semantic-ui-react";
-
+import Navbar from "../components/Navbar";
 const ContactForm = () => {
   const [userFormData, setUserFormData] = useState({
     fullName: "",
@@ -23,7 +23,11 @@ const ContactForm = () => {
   };
 
   return (
-    <div>
+    <div className="homeContainer">
+  
+      <div>
+    <Navbar/>
+    </div>
       <Message
          size="large"
         className="container"

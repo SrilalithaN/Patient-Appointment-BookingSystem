@@ -5,10 +5,13 @@ import image2 from "../images/image2.jpg";
 import image4 from "../images/clinic.webp";
 import image5 from "../images/image5.jpg";
 import image6 from"../images/consulting.png";
-
+import Navbar from "../components/Navbar";
 const Home = () => {
   return (
     <div className="homeContainer">
+          <div>
+    <Navbar/>
+    </div>
       <Grid columns={2} padded>
         <Card.Group itemsPerRow={3} className="clinicInfo">
           <Card className="cardinfo">

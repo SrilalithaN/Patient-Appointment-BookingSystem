@@ -4,7 +4,7 @@ import { Button, Form, Icon, Message } from "semantic-ui-react";
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { SIGNUP } from "../utils/mutations";
-
+import Navbar from "./Navbar";
 const SignupForm = () => {
   const [userFormData, setUserFormData] = useState({
     userName: "",
@@ -29,7 +29,7 @@ const SignupForm = () => {
     try {
       const { data } = await signup({ variables: { ...userFormData } });
       Auth.login(data.signup.token);
-      history.push("/login");
+      history.push("/appointments");
       console.log(userFormData);
     } catch (err) {
       setError(true);
@@ -39,6 +39,7 @@ const SignupForm = () => {
 
   return (
     <div className="container">
+      <Navbar />
       <Message
         className="container"
         size="large"
@@ -48,9 +49,7 @@ const SignupForm = () => {
       {error === true ? (
         <Message negative size="large" className="container">
           <Message.Header>Error</Message.Header>
-          <p>
-            Invalid email address and/or password needs to exceed 5 characters!
-          </p>
+          <p>Incorrect Details!</p>
         </Message>
       ) : (
         ""

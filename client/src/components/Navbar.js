@@ -1,12 +1,17 @@
+
+
 import React, { useState } from "react";
-
 import { Link } from "react-router-dom";
-
+import Auth from "../utils/auth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faBars } from "@fortawesome/free-solid-svg-icons";
 
 
 function Navbar() {
+  const logout = (event) => {
+    event.preventDefault();
+    Auth.logout();
+  };
   const iconTimes = <FontAwesomeIcon icon={faTimes} />;
   const iconBars = <FontAwesomeIcon icon={faBars} />;
 
@@ -29,25 +34,59 @@ function Navbar() {
         </div>
         <ul className={click ? "nav-menu active" : "nav-menu"}>
           <li className="nav-item">
-            <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+            <Link onClick={closeMobileMenu} className="nav-links" to="/">
               Home
             </Link>
           </li>
+          <li className="nav-item" >
+                <Link to="/contact"  onClick={closeMobileMenu}
+                className="nav-links">Contact</Link>
+              </li>
+          {Auth.loggedIn() ? (
+            <>
+              <li className="nav-item">
+                <Link
+                  to="/appointments"
+                  onClick={closeMobileMenu}
+                  className="nav-links"
+                >
+                  Book Appointment
+                </Link>
+              </li>
+              <li className="nav-item" >
+                <Link to="/patient"  onClick={closeMobileMenu}
+                className="nav-links">View Appointment</Link>
+              </li>
+            
           <li className="nav-item">
-            <Link
-              to="/bookings"
-              className="nav-links"
-              onClick={closeMobileMenu}
-            >
-              Bookings
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/contact" className="nav-links" onClick={closeMobileMenu}>
-              Contact
-            </Link>
-          </li>
-
+              <Link onClick={logout}  className="nav-links">
+                Logout  </Link>
+             </li>    
+            </>
+          ) : (
+            <>
+      
+                <li className="nav-item">
+                  <Link
+                    onClick={closeMobileMenu}
+                    className="nav-links"
+                    to="/login"
+                  >
+                    Login
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link
+                    onClick={closeMobileMenu}
+                    className="nav-links"
+                    to="/signup"
+                  >
+                    Signup
+                  </Link>
+                </li>
+           
+            </>
+          )}
         </ul>
       </nav>
     </div>
@@ -55,8 +94,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-
-
-
-
