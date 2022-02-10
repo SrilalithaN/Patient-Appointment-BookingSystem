@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Form,  Message, TextArea } from "semantic-ui-react";
+import { Button, Form, Message, TextArea } from "semantic-ui-react";
 import Navbar from "../components/Navbar";
 const ContactForm = () => {
   const [userFormData, setUserFormData] = useState({
@@ -24,18 +24,16 @@ const ContactForm = () => {
 
   return (
     <div className="homeContainer">
-  
       <div>
-    <Navbar/>
-    </div>
+        <Navbar />
+      </div>
       <Message
-         size="large"
+        size="large"
         className="container"
         header="Contact Us!"
         content="Drop in your questions and suggestions here! "
       />
       <Form className="contact" onSubmit={handleFormSubmit} size="large">
-      
         <Form.Input
           fluid
           width={6}
@@ -57,7 +55,7 @@ const ContactForm = () => {
           value={userFormData.email}
         />
         <Form.Field
-         width={8}
+          width={8}
           label="Message"
           control={TextArea}
           name="message"

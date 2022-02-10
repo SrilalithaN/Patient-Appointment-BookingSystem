@@ -2,9 +2,9 @@ import React from "react";
 import { Card, Grid, Image, Icon } from "semantic-ui-react";
 import image1 from "../images/image1.jpg";
 import image2 from "../images/image2.jpg";
+import image3 from "../images/image3.jpg";
 import image4 from "../images/clinic.webp";
-import image5 from "../images/image5.jpg";
-import image6 from"../images/consulting.png";
+import image5 from"../images/consulting.png";
 import Navbar from "../components/Navbar";
 const Home = () => {
   return (
@@ -17,7 +17,7 @@ const Home = () => {
           <Card className="cardinfo">
             <Image src={image1} wrapped ui={false} size="tiny" />
             <Card.Content>
-              <Card.Header>Dr.N.S.R.Murthy:</Card.Header>
+              <Card.Header>Dr.N.S.R.Murthy</Card.Header>
               <Card.Description>
                 Dr.N.S.R Murthy is a veteran Dermatologist with over 35 years of
                 exprience
@@ -36,7 +36,7 @@ const Home = () => {
             <Card.Content extra>M.D(Anaesthesia)</Card.Content>
           </Card>
           <Card className="cardinfo">
-            <Image src={image5} wrapped ui={false} size="tiny" />
+            <Image src={image3} wrapped ui={false} size="tiny" />
             <Card.Content>
               <Card.Header>Dr.Pragnya Karri</Card.Header>
               <Card.Description>
@@ -49,7 +49,7 @@ const Home = () => {
 
         <Card.Group itemsPerRow={2} className="clinicInfo">
           <Card>
-            <Image src={image6} wrapped ui={false} size="small" />
+            <Image src={image5} wrapped ui={false} size="small" />
             <Card.Content>
               <Card.Header>Consulting Hours:</Card.Header>
               <Card.Description>

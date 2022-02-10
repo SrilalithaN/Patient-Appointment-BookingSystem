@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import { Button, Form, Message, Select } from "semantic-ui-react";
-
 import { useMutation } from "@apollo/client";
 import { ADD_APPOINTMENT } from "../utils/mutations";
-import Auth from "../utils/auth";
 import {  useHistory } from "react-router-dom";
 import Navbar from "./Navbar";
 
@@ -21,10 +19,6 @@ const AppointmentForm = () => {
   const [error, setError] = useState(false);
   const history = useHistory();
 
-  const logout = (event) => {
-    event.preventDefault();
-    Auth.logout();
-  };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setError(false);
@@ -108,10 +102,6 @@ const AppointmentForm = () => {
         color="blue"
       >
         Submit
-      </Button>
-
-      <Button onClick={logout} type="submit" size="large" color="blue">
-        Logout
       </Button>
     </Form>
     </div>

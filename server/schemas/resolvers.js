@@ -63,21 +63,7 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    cancelAppointment: async (root, { bookingId }, context) => {
-      if (context.user) {
-        const deletedAppointment = await Appointment.findOneAndDelete({
-          _id: bookingId,
-        });
 
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $pull: { appointments: deletedAppointment._id } }
-        );
-
-        return deletedAppointment;
-      }
-      throw new AuthenticationError("You need to be logged in!");
-    },
   },
 };
 module.exports = resolvers;

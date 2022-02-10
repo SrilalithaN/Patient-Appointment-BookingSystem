@@ -15,7 +15,7 @@
   background-image: url(./images/dust_scratches.png); 
 }
 .container {
-  background-image: url(./images/hospital2.jpg);
+  background-image: url(./images/hospital.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -140,7 +140,7 @@ padding: 1rem;
     display: flex;
     flex-direction: column;
     width: 40%;
-    height: 40vh;
+    height: 60vh;
     position: absolute;
     top: 7rem;
     left: -100%;
@@ -181,4 +181,12 @@ padding: 1rem;
     flex-wrap: wrap;
     flex-grow:2;
  }
+ }
+ @media screen and (max-width:500px) {
+   .cardInfo{
+     display: flex;
+     flex-wrap: wrap;
+     flex-basis: 100%;
+   }
+   
  }

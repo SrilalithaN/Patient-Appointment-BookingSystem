@@ -40,7 +40,7 @@ const typeDefs = gql`
       dateTime: String!
     ): Appointment
 
-    cancelAppointment(bookingId: ID!): Appointment
+
   }
 `;
 

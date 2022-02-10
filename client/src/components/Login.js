@@ -5,6 +5,7 @@ import Auth from "../utils/auth";
 import { LOGIN_USER } from "../utils/mutations";
 import { Button, Form, Message } from "semantic-ui-react";
 import Navbar from "./Navbar";
+
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [login] = useMutation(LOGIN_USER);
