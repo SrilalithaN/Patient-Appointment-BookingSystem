@@ -33,7 +33,7 @@ You will need Node.js installed on your local machine
 
 - Visit the website on Heroku
 - You can signup by adding your fullname,username,email and password.
-- This will direct you to login page and you can login using the email and password.
+- Alternatively you can login using email and password if you are a registered user.
 - As an authenticated user you can now book an appointment by adding patient name, selecting a doctor name from a dropdown menu and selecting a date and time for the appointment.
 - Once you make an appointment a modal will appear with the appointment details.
 - You can click 'View Appointments'link  to a navigate to a user page with appointment details and if you wish to cancel any appointment you can do so by clicking 'Cancel Appointment'button.
