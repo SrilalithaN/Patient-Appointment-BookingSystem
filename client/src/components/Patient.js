@@ -1,26 +1,57 @@
 import React from "react";
-import { useQuery } from "@apollo/client";
+import { useQuery ,useMutation } from "@apollo/client";
 import { GET_PATIENTINFO } from "../utils/queries";
 import { FormatDate } from "../utils/helpers";
-import { Card } from "semantic-ui-react";
+import { Card, Button } from "semantic-ui-react";
 import Navbar from "./Navbar";
+import { CANCEL_APPOINTMENT } from "../utils/mutations";
+
 
 const PatientData = () => {
   const { loading, data } = useQuery(GET_PATIENTINFO);
+
   const patient = data?.patient || [];
 
+
+  const [cancelAppointment] = useMutation(CANCEL_APPOINTMENT, {
+    update(cache, { data: { cancelAppointment } }) {
+      try {
+    
+        cache.writeQuery({
+          query: GET_PATIENTINFO,
+          data: { patient:cancelAppointment },
+        });
+      } catch (e) {
+        console.error(e);
+      }
+    },
+  });
+
+  const handleDeleteAppointment = async (bookingId) => {
+    try {
+    await cancelAppointment({
+        variables: { bookingId },
+      });
+    
+    } catch (error) {}
+  };
   if (loading) {
     return <h2>LOADING...</h2>;
   }
   return (
     <div>
       <Navbar />
-      <div className="home ui container">
+      <div className="container">
         <h2>
           Hello <span className="user">{patient.fullName}!</span>
         </h2>
+         <p>Please refresh the page to view appointments!</p>
+        <h2>
+          {patient.appointments.length
+            ? "Thank you for booking appointment with us"
+            : "You have no appointments to view"}
+        </h2>
 
-        <p className="patientInfo">Here are your appointment details:</p>
         {patient.appointments.map((appointment) => {
           return (
             <Card.Group itemsPerRow={2} className="patientCard">
@@ -37,6 +68,15 @@ const PatientData = () => {
                       Date and Time of Appointment:
                       {FormatDate(appointment.dateTime)}
                     </p>
+                    <Button
+                      color="blue"
+                      type="submit"
+                      size="large"
+                      value={appointment._id}
+                      onClick={() => handleDeleteAppointment(appointment._id)}
+                    >
+                      Cancel Appointment
+                    </Button>
                   </div>
                 </Card.Description>
               </Card>

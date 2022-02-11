@@ -8,6 +8,7 @@ export const GET_PATIENTINFO = gql`
       email
       fullName
       appointments {
+        _id
         patientName
         doctorName
         dateTime

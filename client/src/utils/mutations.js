@@ -55,3 +55,13 @@ export const ADD_APPOINTMENT = gql`
   }
 `;
 
+
+export const CANCEL_APPOINTMENT = gql`
+mutation CancelAppointment($bookingId: ID!) {
+  cancelAppointment(bookingId: $bookingId) {
+    patientName
+    doctorName
+    dateTime
+  }
+}
+`;

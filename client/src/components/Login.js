@@ -69,12 +69,7 @@ const LoginForm = () => {
           className="form-input"
         />
 
-        <Button
-          disabled={!(userFormData.email && userFormData.password)}
-          type="submit"
-          size="large"
-          color="blue"
-        >
+        <Button type="submit" size="large" color="blue">
           Log In
         </Button>
       </Form>

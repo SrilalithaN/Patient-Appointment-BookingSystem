@@ -41,7 +41,9 @@ const typeDefs = gql`
     ): Appointment
 
 
+    cancelAppointment(bookingId: ID!): Appointment
   }
+
 `;
 
 module.exports = typeDefs;
