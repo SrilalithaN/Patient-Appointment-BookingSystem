@@ -43,7 +43,7 @@ You will need Node.js installed on your local machine
 
 ## Assets
 
-- The following is a walkthrough video of the application's usage: https://watch.screencastify.com/v/ExlPQrVmMXswHXxD5laj
+- The following is a walkthrough video of the application's usage: https://watch.screencastify.com/v/yCeHzMQIpCXxZMysC8YE
 
 - The following is the link to the delpoyed code on github: https://github.com/SrilalithaN/Patient-Appointment-BookingSystem
 
