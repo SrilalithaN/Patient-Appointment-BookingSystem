@@ -47,6 +47,7 @@ export const ADD_APPOINTMENT = gql`
       dateTime: $dateTime
     
     ) {
+      _id
       patientName
       doctorName
       dateTime

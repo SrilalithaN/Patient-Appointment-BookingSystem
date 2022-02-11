@@ -42,11 +42,10 @@ const PatientData = () => {
     <div>
       <Navbar />
       <div className="container">
-        <h2>
+        <h2 className="patientCard" >
           Hello <span className="user">{patient.fullName}!</span>
         </h2>
-         <p>Please refresh the page to view appointments!</p>
-        <h2>
+        <h2 className="patientCard" >
           {patient.appointments.length
             ? "Thank you for booking appointment with us"
             : "You have no appointments to view"}
@@ -54,8 +53,9 @@ const PatientData = () => {
 
         {patient.appointments.map((appointment) => {
           return (
-            <Card.Group itemsPerRow={2} className="patientCard">
-              <Card>
+            <div className="patientCard" >
+            <Card.Group itemsPerRow={2} key = {appointment._id}>
+              <Card >
                 <Card.Description>
                   <div className="patientInfo">
                     <p className="patientInfo">
@@ -81,6 +81,7 @@ const PatientData = () => {
                 </Card.Description>
               </Card>
             </Card.Group>
+            </div>
           );
         })}
       </div>

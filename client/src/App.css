@@ -112,9 +112,11 @@
   font-weight: bold;
 }
 .patientInfo{
+
 padding: 1rem;
 }
 .patientCard{
+  margin-left: 2rem;
   padding-bottom: 2rem;
 }
 

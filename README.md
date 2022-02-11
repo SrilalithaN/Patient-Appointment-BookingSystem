@@ -4,7 +4,9 @@
 
 - Patient-Appointment-Booking System is a website for a private clinic with a key feature to book and view appointments.
 
-- The patient can signup/login and book an appointment. The patient can view the appointment details.
+- The patient can signup/login and book an appointment. 
+
+* The patient can view the appointment details and can cancel the appointments.
 
 ## Table Of Contents
 
@@ -33,7 +35,8 @@ You will need Node.js installed on your local machine
 - You can signup by adding your fullname,username,email and password.
 - This will direct you to login page and you can login using the email and password.
 - As an authenticated user you can now book an appointment by adding patient name, selecting a doctor name from a dropdown menu and selecting a date and time for the appointment.
-- Once you make an appointment you will be redicrected to a user page with appointment details
+- Once you make an appointment a modal will appear with the appointment details.
+- You can click 'View Appointments'link  to a navigate to a user page with appointment details and if you wish to cancel any appointment you can do so by clicking 'Cancel Appointment'button.
 - To logout you can click the logout button.
 
 
