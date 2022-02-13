@@ -41,7 +41,7 @@ const PatientData = () => {
         <h2 className="patientCard">
           Hello <span className="user">{patient.fullName}!</span>
         </h2>
-        <p>Please refresh the page to view new appointments.</p>
+  
         <h2 className="patientCard">
           {patient.appointments.length
             ? "Thank you for booking appointment with us"
